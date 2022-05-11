@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="result" method="POST">
+        {% csrf_token %}
+        Enter your list: <input type="text" name="mylist"><br><br>
+        Enter your number: <input type="text" name="number"><br><br>
+        <input type="submit">
+    </form>
+
+{% endblock %}
