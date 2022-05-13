@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <!-- About Section -->
+  <div class="w3-container w3-padding-32 w3-center">
+    {% for j in about_list %}  
+    <h3>{{ j.name }}</h3><br>
+    <img src="{{ j.img.url }}" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <div class="w3-padding-32">
+      <p>{{ j.about }}</p>
+    </div>
+    {% endfor %}
+
+  </div>
+  <hr>
+{% endblock %}

@@ -1,18 +1,18 @@
 from django.shortcuts import render
+from .models import Cake, AboutSite
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'home.html')
+    cake_list = Cake.objects.all()
+    context = {
+        'cake_list':cake_list
+    }
+    return render(request, 'home.html', context)
 
-
-def result(request):
-    mylist = request.POST['mylist']
-    number = request.POST['number']
-
-    if number in mylist:
-        res = 'Yes'
-        return render(request, 'result.html', {'res':res})
-    else:
-        res = 'No'
-        return render(request, 'result.html', {'res':res})
+def about(request):
+    about_list = AboutSite.objects.all()
+    context = {
+        'about_list':about_list
+    }
+    return render(request, 'about.html', context)

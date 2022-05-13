@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="result" method="POST">
-        {% csrf_token %}
-        Enter your list: <input type="text" name="mylist"><br><br>
-        Enter your number: <input type="text" name="number"><br><br>
-        <input type="submit">
-    </form>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+        {% for i in cake_list %}
+      <div class="w3-quarter">
+        <img src="{{ i.img.url }}" alt="Sandwich" style="width:100%">
+        <h3>{{ i.name }}</h3>
+        <p>{{ i.about }}</p>
+      </div>
+        {% endfor %}
+    </div>
+</div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+    </div>
+  </div>
+
 
 {% endblock %}
